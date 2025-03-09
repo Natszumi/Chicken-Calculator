@@ -1,0 +1,177 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SFL Chicken Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <h1 id="title">SFL Chicken Calculator</h1>
+    <details>
+        <summary>Boost</summary>
+        <h1>Chicken Boost</h1>
+        <div class="Boost">
+            <div><input type="checkbox" id="eggYield1"">Rich Chicken (+0.1 Egg)</div>
+            <div><input type="checkbox" id="feedingReduction1">Fat Chicken (-10% Feed to chicken)</div>
+            <div><input type="checkbox" id="sleepingTime1">Speed Chicken (-10% Egg production time)</div>
+            <div><input type="checkbox" id="eggYield2"">Undead Rooster (+0.1 Egg)</div>
+            <div><input type="checkbox" id="sleepingTime2">El Pollo Veloz (-2h Egg Production Time)</div>
+            <div><input type="checkbox" id="eggYield3"">Ayam Cemani (+0.2 Egg)</div>
+            <div><input type="checkbox" id="eggYield4"">Chicken Coop (+1 Egg)</div>
+            <div><input type="checkbox" id="featherYield1">Alien Chicken (+0.1 Feathers)</div>
+            <div><input type="checkbox" id="featherYield2">Chicken Suit (+1 Feather)</div>
+            <div><input type="checkbox" id="freeFeedCost">Golden Egg (Free to Feed Chickens)</div>
+            <div><input type="checkbox" id="feedingReduction2">Cluckulator (-25% Feed to chicken)</div>
+            <div><input type="checkbox" id="animalYield1"">Cattlegrim (+0.25 Animal yield)</div>
+            <div><input type="checkbox" id="eggYield5">Bale (+0.1 Egg)</div>
+        </div>
+    </details>
+    <br>
+    <details id="Skills1">
+        <summary>Skills</summary>
+        <h1>Skills</h1>
+        <div class="Skills">
+        <div><input type="checkbox" id="feedingReduction3">Efficient Feeding (-5% Feed to animals)</div>
+        <div><input type="checkbox" id="sleepingTime3">Restless Animals (-10% Animal Sleep time)</div>
+        <div><input type="checkbox" id="featherYield3">Fine Fibers (+0.1 Feather, Leather and Merino Wool yield)</div>
+        <div><input type="checkbox" id="eggYield6">Double Bale (x2 Bale Effect)</div>
+        <div><input type="checkbox" id="eggYield7">Abundant Harvest (+0.2 Egg, Wool, Milk yield)</div>
+        <div><input type="checkbox" id="feedingReduction4">Clucky Grazing (-25% Feed to chickens, +50% Feed to other animals)</div>
+        <div><input type="checkbox" id="feedingIncrease1">Chonky Feed (2x Animal "XP" animal feed, +50% Feed to "all" animals )</div>
+        <div><input type="checkbox" id="sleepingTime4">Wrangler (-10% Animal Cooldown [LEGACY])</div>
+        <div><input type="checkbox" id="animalYield2"">Barn Manager (+0.1 Animal produce [LEGACY])</div>
+    </div>
+    </details>
+    <br>
+    <details id="chickenLevels">
+        <summary>Chicken Levels</summary>
+        <h1>Levels</h1>
+            <button id="feedButton">Feed Type: Feeds</button>
+        <div class="LevelsH3">
+            <h3>Egg Boost yield: <span id="baseEggYield">0</span></h3>
+            <h3>Feather Boost yield: <span id="baseFeatherYield"> 0</span></h3>
+            <h3>Sleeping Time: <span id="sleepingTime">24:00:00</span></h3>
+        </div>
+        <br>
+        <div id="Levels">
+            <div>
+                <span>Level 0</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype1">Kernel Blend</span></span>
+                <br>
+                <span class="XP">XP 60</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 1</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype1">Kernel Blend</span></span>
+                <br>
+                <span class="XP">XP 120</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 2</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype1">Kernel Blend</span></span>
+                <br>
+                <span class="XP">XP 240</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 3</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype2">Hay</span></span>
+                <br>
+                <span class="XP">XP 360</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 4</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype2">Hay</span></span>
+                <br>
+                <span class="XP">XP 480</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 5</span>
+                <span class="x">x<span class="feedCost">1</span><span<span class="feedtype2">Hay</span></span></span>
+                <br>
+                <span class="XP">XP 660</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 6</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype3">NutriBarley</span></span>
+                <br>
+                <span class="XP">XP 840</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 7</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype3">NutriBarley</span></span>
+                <br>
+                <span class="XP">XP 1020</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 8</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype3">NutriBarley</span></span>
+                <br>
+                <span class="XP">XP 1200</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 9</span>
+                <span class="x">x<span class="feedCost">1</span><span><span class="feedtype3">NutriBarley</span></span></span>
+                <br>
+                <span class="XP">XP 1440</span>
+                <span class="feedXP">XP 60</span>
+            </div>
+            <div>
+                <span>Level 10</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype4">Mixed Grain</span></span>
+                <br>
+                <span class="XP">XP 1680</span>
+                <span class="feedXP">XP 80</span>
+            </div>
+            <div>
+                <span>Level 11</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype4">Mixed Grain</span></span>
+                <br>
+                <span class="XP">XP 1920</span>
+                <span class="feedXP">XP 80</span>
+            </div>
+            <div>
+                <span>Level 12</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype4">Mixed Grain</span></span>
+                <br>
+                <span class="XP">XP 2160</span>
+                <span class="feedXP">XP 80</span>
+            </div>
+            <div>
+                <span>Level 13</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype4">Mixed Grain</span></span>
+                <br>
+                <span class="XP">XP 2400</span>
+                <span class="feedXP">XP 80</span>
+            </div>
+            <div>
+                <span>Level 14</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype4">Mixed Grain</span></span>
+                <br>
+                <span class="XP">XP 2720</span>
+                <span class="feedXP">XP 80</span>
+            </div>
+            <div>
+                <span>Level 15</span>
+                <span class="x">x<span class="feedCost">1</span><span class="feedtype4">Mixed Grain</span></span>
+                <br>
+                <span class="XP">XP 2720</span>
+                <span class="feedXP">XP 80</span>
+            </div>
+
+        </div>
+    
+    </details>
+
+    <script src="./script.js"></script>
+</body>
+</html>
