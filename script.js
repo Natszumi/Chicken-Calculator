@@ -1,9 +1,8 @@
 // Select elements to update
 let baseEggYield = document.querySelector("#baseEggYield");
 let baseFeatherYield = document.querySelector("#baseFeatherYield");
-let sleepingTime = document.querySelector("#sleepingTime");
 
-// Define checkboxes affecting egg yield, feather yield, and sleeping time
+// Define checkboxes affecting egg yield and feather yield
 let eggYieldCheckboxes = [
     { id: "eggYield1", value: 0.1 },
     { id: "eggYield2", value: 0.1 },
@@ -24,11 +23,9 @@ let featherYieldCheckboxes = [
     { id: "animalYield2", value: 0.1 }
 ];
 
-
-
 // Function to update egg yield
 function updateEggYield() {
-    let totalYield = 0; // Base egg yield
+    let totalYield = 0;
 
     eggYieldCheckboxes.forEach(item => {
         let checkbox = document.getElementById(item.id);
@@ -38,11 +35,17 @@ function updateEggYield() {
     });
 
     baseEggYield.textContent = totalYield.toFixed(2);
+
+    // Update all elements with class "eggPerLevel"
+    document.querySelectorAll(".eggPerLevel").forEach(element => {
+        let baseValue = parseFloat(element.getAttribute("data-default")) || 1;
+        element.innerHTML = `${(baseValue + totalYield).toFixed(2)}<span>x </span>Egg`;
+    });
 }
 
 // Function to update feather yield
 function updateFeatherYield() {
-    let totalFeathers = 0; // Base feather yield
+    let totalFeathers = 0;
 
     featherYieldCheckboxes.forEach(item => {
         let checkbox = document.getElementById(item.id);
@@ -52,9 +55,38 @@ function updateFeatherYield() {
     });
 
     baseFeatherYield.textContent = totalFeathers.toFixed(2);
+
+    // Update all elements with class "featherPerLevel"
+    document.querySelectorAll(".featherPerLevel").forEach(element => {
+        let baseValue = parseFloat(element.getAttribute("data-default")) || 1;
+        element.innerHTML = `${(baseValue + totalFeathers).toFixed(2)}<span>x </span>Feather`;
+    });
 }
 
+// Store default values for eggPerLevel and featherPerLevel elements
+document.querySelectorAll(".eggPerLevel").forEach(element => {
+    element.setAttribute("data-default", parseFloat(element.textContent) || 1);
+});
 
+document.querySelectorAll(".featherPerLevel").forEach(element => {
+    element.setAttribute("data-default", parseFloat(element.textContent) || 1);
+});
+
+// Attach event listeners to checkboxes
+document.querySelectorAll("input[type='checkbox']").forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+        updateEggYield();
+        updateFeatherYield();
+    });
+});
+
+// Initialize values on page load
+document.addEventListener("DOMContentLoaded", () => {
+    updateEggYield();
+    updateFeatherYield();
+});
+
+//###########################################################################
 let sleepingTimeCheckboxes = [
     { id: "sleepingTime2", reduction: "02:00:00" }  // -2 hours (fixed)
 ];
@@ -210,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Listen for checkbox changes
     doubleXPCheckbox.addEventListener("change", updateFeedXP);
 });
-
+//$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
 //#################################################################################
