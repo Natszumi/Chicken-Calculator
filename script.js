@@ -189,6 +189,28 @@ document.addEventListener("DOMContentLoaded", () => {
     updateFeedingCost();
 });
 
+//####################################################################################
+document.addEventListener("DOMContentLoaded", () => {
+    let doubleXPCheckbox = document.getElementById("feedingIncrease1"); // Using existing Chonky Feed checkbox
+    let xpElements = document.querySelectorAll(".feedXP");
+
+    // Store the original XP values
+    xpElements.forEach(element => {
+        element.setAttribute("data-base-xp", element.textContent.replace(/\D/g, "")); // Store base XP
+    });
+
+    function updateFeedXP() {
+        xpElements.forEach(element => {
+            let baseXP = parseInt(element.getAttribute("data-base-xp"), 10);
+            let newXP = doubleXPCheckbox.checked ? baseXP * 2 : baseXP;
+            element.textContent = `XP ${newXP}`;
+        });
+    }
+
+    // Listen for checkbox changes
+    doubleXPCheckbox.addEventListener("change", updateFeedXP);
+});
+
 
 
 //#################################################################################
